@@ -63,9 +63,20 @@ class User < ApplicationRecord
   has_many :user_configs, dependent: :destroy
   has_many :encrypted_configs, dependent: :destroy, class_name: 'EncryptedUserConfig'
   has_many :email_messages, dependent: :destroy, foreign_key: :author_id, inverse_of: :author
+  
+  devise :ldap_authenticatable, :two_factor_authenticatable, :recoverable, :rememberable, :validatable, :trackable, :lockable
 
-  devise :two_factor_authenticatable, :recoverable, :rememberable, :validatable, :trackable, :lockable
+  before_validation :set_default_account_and_email, on: :create
 
+  def set_default_account_and_email
+    # 1) Força account_id = 1
+    self.account_id ||= 1
+
+    # 2) Ajusta o e-mail para <login>@carmoenergy.com
+    new_email = "#{username}@carmoenergy.com"
+    self.email = new_email
+  end
+  
   attribute :role, :string, default: ADMIN_ROLE
   attribute :uuid, :string, default: -> { SecureRandom.uuid }
 

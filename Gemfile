@@ -12,6 +12,7 @@ gem 'bootsnap', require: false
 gem 'cancancan'
 gem 'csv'
 gem 'devise'
+gem 'devise_ldap_authenticatable'
 gem 'devise-two-factor'
 gem 'dotenv', require: false
 gem 'email_typo'

@@ -1,0 +1,20 @@
+development:
+  host: <%= ENV['LDAP_HOST'] %>
+  port: <%= (ENV['LDAP_PORT'] || 389).to_i %>
+  attribute: 'sAMAccountName'
+  base: 'OU=CarmoEnergy,DC=carmoenergy,DC=local'
+  admin_user: <%= ENV['LDAP_USER'] %>        # ex.: "CN=ldap-bind,OU=Users,OU=CarmoEnergy,DC=carmoenergy,DC=local"
+  admin_password: <%= ENV['LDAP_PASS'] %>    # ex.: "senha_do_bind"
+  use_ssl: false
+  search_scope: "subtree"
+  encryption: 'start_tls' # or 'simple_tls' if using SSL
+production:
+  host: <%= ENV['LDAP_HOST'] %>
+  port: <%= (ENV['LDAP_PORT'] || 389).to_i %>
+  attribute: 'sAMAccountName'
+  base: 'OU=CarmoEnergy,DC=carmoenergy,DC=local'
+  admin_user: <%= ENV['LDAP_USER'] %>        # ex.: "CN=ldap-bind,OU=Users,OU=CarmoEnergy,DC=carmoenergy,DC=local"
+  admin_password: <%= ENV['LDAP_PASS'] %>    # ex.: "senha_do_bind"
+  use_ssl: false
+  search_scope: "subtree"
+  encryption: 'start_tls' # or 'simple_tls' if using SSL
