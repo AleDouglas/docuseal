@@ -6,7 +6,8 @@
 *.sqlite3
 *.env
 .env
-
+/data/docuseal/*.sqlite3
+/data/docuseal/*.env
 /log/*
 /tmp/*
 !/log/.keep
