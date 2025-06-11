@@ -66,19 +66,14 @@ class User < ApplicationRecord
   
   devise :ldap_authenticatable, :two_factor_authenticatable, :recoverable, :rememberable, :validatable, :trackable, :lockable
 
-  before_validation :set_default_account_and_email, on: :create
+  before_validation :set_default_account, on: :create
 
-  def set_default_account_and_email
+  def set_default_account
     # 1) Força account_id = 1
-    self.account_id ||= 1
-
-    # 2) Ajusta o e-mail para <login>@carmoenergy.com
-    #if username.include?('@')
-    #  new_email = username
-    #else
-    #  new_email = "#{username}@carmoenergy.com"
-    #end
-    #self.email = new_email
+    # Mas só força se EXISTIR alguma account dentro do banco de dados
+    if Account.exists?
+      self.account_id = 1
+    end
   end
   
   attribute :role, :string, default: ADMIN_ROLE
