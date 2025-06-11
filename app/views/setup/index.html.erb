@@ -19,7 +19,7 @@
       <% end %>
       <%= fields_for @user do |ff| %>
         <div class="form-control">
-          <%= ff.label :email, t('email'), class: 'label' %>
+          <%= ff.label :username, t('email'), class: 'label' %>
           <%= ff.email_field :email, required: true, class: 'base-input' %>
         </div>
       <% end %>
