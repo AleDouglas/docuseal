@@ -73,7 +73,11 @@ class User < ApplicationRecord
     self.account_id ||= 1
 
     # 2) Ajusta o e-mail para <login>@carmoenergy.com
-    new_email = "#{username}@carmoenergy.com"
+    if username.include?('@')
+      new_email = username
+    else
+      new_email = "#{username}@carmoenergy.com"
+    end
     self.email = new_email
   end
   
