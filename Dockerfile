@@ -92,6 +92,5 @@ WORKDIR /data/docuseal
 ENV WORKDIR=/data/docuseal
 
 EXPOSE 3000
-#CMD ["/app/bin/bundle", "exec", "puma", "-C", "/app/config/puma.rb", "--dir", "/app"]
-CMD ["sh","-lc","cd /app && bundle exec rake db:migrate && exec bundle exec puma -C /app/config/puma.rb --dir /app"]
+CMD ["/app/bin/bundle", "exec", "puma", "-C", "/app/config/puma.rb", "--dir", "/app"]
 
