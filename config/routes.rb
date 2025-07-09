@@ -165,19 +165,21 @@ Rails.application.routes.draw do
       resources :storage, only: %i[index create], controller: 'storage_settings'
       resources :sms, only: %i[index], controller: 'sms_settings'
     end
-    resources :email, only: %i[index create], controller: 'email_smtp_settings'
-    resources :sso, only: %i[index], controller: 'sso_settings'
-    resources :notifications, only: %i[index create], controller: 'notifications_settings'
-    resource :esign, only: %i[show create new update destroy], controller: 'esign_settings'
-    resources :users, only: %i[index]
-    resources :archived_users, only: %i[index], path: 'users/:status', controller: 'users',
-                               defaults: { status: :archived }
-    resources :integration_users, only: %i[index], path: 'users/:status', controller: 'users',
-                                  defaults: { status: :integration }
-    resource :personalization, only: %i[show create], controller: 'personalization_settings'
-    resources :api, only: %i[index create], controller: 'api_settings'
-    resources :webhooks, only: %i[index show new create update destroy], controller: 'webhook_settings' do
-      post :resend
+    authenticated :user, ->(u) { u.role == User::ADMIN_ROLE } do
+      resources :email, only: %i[index create], controller: 'email_smtp_settings'
+      resources :sso, only: %i[index], controller: 'sso_settings'
+      resources :notifications, only: %i[index create], controller: 'notifications_settings'
+      resource :esign, only: %i[show create new update destroy], controller: 'esign_settings'
+      resources :users, only: %i[index]
+      resources :archived_users, only: %i[index], path: 'users/:status', controller: 'users',
+                                defaults: { status: :archived }
+      resources :integration_users, only: %i[index], path: 'users/:status', controller: 'users',
+                                    defaults: { status: :integration }
+      resource :personalization, only: %i[show create], controller: 'personalization_settings'
+      resources :api, only: %i[index create], controller: 'api_settings'
+      resources :webhooks, only: %i[index show new create update destroy], controller: 'webhook_settings' do
+        post :resend
+      end
     end
     resource :account, only: %i[show update destroy]
     resources :profile, only: %i[index] do

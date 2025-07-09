@@ -44,7 +44,9 @@
 #
 class User < ApplicationRecord
   ROLES = [
-    ADMIN_ROLE = 'admin'
+    ADMIN_ROLE = 'admin',
+    VIEWER_ROLE = 'viewer',
+    EDITOR_ROLE = 'editor',
   ].freeze
 
   EMAIL_REGEXP = /[^@;,<>\s]+@[^@;,<>\s]+/
@@ -76,12 +78,12 @@ class User < ApplicationRecord
     end
   end
   
-  attribute :role, :string, default: ADMIN_ROLE
+  attribute :role, :string, default: VIEWER_ROLE
   attribute :uuid, :string, default: -> { SecureRandom.uuid }
 
   scope :active, -> { where(archived_at: nil) }
   scope :archived, -> { where.not(archived_at: nil) }
-  scope :admins, -> { where(role: ADMIN_ROLE) }
+  scope :admins, -> { where(role: VIEWER_ROLE) }
 
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\z/ }
 
@@ -98,8 +100,7 @@ class User < ApplicationRecord
   end
 
   def sidekiq?
-    return true if Rails.env.development?
-
+    #return true if Rails.env.development?
     role == 'admin'
   end
 

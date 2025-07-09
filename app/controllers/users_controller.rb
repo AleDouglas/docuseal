@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       return render turbo_stream: turbo_stream.replace(:modal, template: 'users/new'), status: :unprocessable_entity
     end
 
-    @user.role = User::ADMIN_ROLE unless role_valid?(@user.role)
+    @user.role = User::VIEWER_ROLE unless role_valid?(@user.role)
 
     if @user.save
       UserMailer.invitation_email(@user).deliver_later!
