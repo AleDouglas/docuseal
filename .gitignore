@@ -8,6 +8,8 @@
 .env
 /data/docuseal/*.sqlite3
 /data/docuseal/*.env
+/data/docuseal/*
+/data/docuseal/
 /log/*
 /tmp/*
 !/log/.keep
