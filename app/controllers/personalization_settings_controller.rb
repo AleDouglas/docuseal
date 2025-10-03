@@ -36,17 +36,24 @@ class PersonalizationSettingsController < ApplicationController
 
   private
 
+
+
   def load_and_authorize_account_config
-    @account_config =
-      current_account.account_configs.find_or_initialize_by(key: account_config_params[:key])
+    unless current_user&.role == User::ADMIN_ROLE
+      render file: Rails.root.join('public/403.html'),
+            status: :forbidden,
+            layout: false
+    end
+      @account_config =
+        current_account.account_configs.find_or_initialize_by(key: account_config_params[:key])
 
-    @account_config.assign_attributes(account_config_params)
+      @account_config.assign_attributes(account_config_params)
 
-    authorize!(:create, @account_config)
+      authorize!(:create, @account_config)
 
-    raise InvalidKey unless ALLOWED_KEYS.include?(@account_config.key)
+      raise InvalidKey unless ALLOWED_KEYS.include?(@account_config.key)
 
-    @account_config
+      @account_config
   end
 
   def account_config_params

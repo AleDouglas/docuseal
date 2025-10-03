@@ -161,11 +161,11 @@ Rails.application.routes.draw do
   end
 
   scope '/settings', as: :settings do
-    unless Docuseal.multitenant?
-      resources :storage, only: %i[index create], controller: 'storage_settings'
-      resources :sms, only: %i[index], controller: 'sms_settings'
-    end
-    authenticated :user, ->(u) { u.role == User::ADMIN_ROLE } do
+    resource :account, only: %i[show update destroy]
+      unless Docuseal.multitenant?
+        resources :storage, only: %i[index create], controller: 'storage_settings'
+        resources :sms, only: %i[index], controller: 'sms_settings'
+      end
       resources :email, only: %i[index create], controller: 'email_smtp_settings'
       resources :sso, only: %i[index], controller: 'sso_settings'
       resources :notifications, only: %i[index create], controller: 'notifications_settings'
@@ -180,8 +180,6 @@ Rails.application.routes.draw do
       resources :webhooks, only: %i[index show new create update destroy], controller: 'webhook_settings' do
         post :resend
       end
-    end
-    resource :account, only: %i[show update destroy]
     resources :profile, only: %i[index] do
       collection do
         patch :update_contact

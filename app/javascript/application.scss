@@ -15,6 +15,30 @@ button {
   cursor: pointer;
 }
 
+.bg-base-content{
+  background-color: #1b396d !important;
+  color: white !important;
+}
+
+.bg-base-200{
+  background-color: #1b396d !important;
+  color: white !important;
+}
+
+.bg-base-200 *{
+  color: white !important;
+}
+
+.bg-base-white{
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid gray !important;
+}
+
+.bg-base-white *{
+  color: black !important;
+}
+
 button .disabled {
   display: none;
 }
@@ -60,7 +84,11 @@ button[disabled] .enabled {
 }
 
 .white-button {
-  @apply btn btn-outline text-base bg-white border-2;
+  @apply btn btn-outline bg-white border-2;
+}
+
+.white-button *{
+  color: black !important;
 }
 
 .base-checkbox {

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserConfigsController < ApplicationController
-  before_action :load_user_config
+  before_action :authorize_admin
   authorize_resource :user_config
 
   ALLOWED_KEYS = [
@@ -18,6 +18,16 @@ class UserConfigsController < ApplicationController
   end
 
   private
+
+  def authorize_admin
+    if current_user&.role == User::ADMIN_ROLE
+      load_user_config
+    else
+      render file: Rails.root.join('public/403.html'),
+            status: :forbidden,
+            layout: false
+    end
+  end
 
   def load_user_config
     raise InvalidKey unless ALLOWED_KEYS.include?(user_config_params[:key])

@@ -6,6 +6,10 @@ class AccountConfigsController < ApplicationController
 
   load_and_authorize_resource :account_config, only: :destroy
 
+  rescue_from CanCan::AccessDenied do |_e|
+    render file: Rails.root.join('public/403.html'), status: :forbidden, layout: false
+  end
+
   ALLOWED_KEYS = [
     AccountConfig::ALLOW_TYPED_SIGNATURE,
     AccountConfig::FORCE_MFA,

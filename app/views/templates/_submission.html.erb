@@ -2,7 +2,7 @@
 <div class="bg-base-200 rounded-2xl flex flex-col sm:flex-row items-strech">
   <% if local_assigns[:with_template] %>
     <% template = submission.template %>
-    <a href="<%= template_path(template) %>" class="px-5 sm:pr-3 py-3 group sm:rounded-l-2xl sm:rounded-tr-none rounded-t-2xl flex sm:flex-col justify-between sm:w-52 w-full flex-shrink-0 bg-base-300/60 space-x-2 sm:space-x-0">
+    <a href="<%= template_path(template) %>" class="px-5 sm:pr-3 py-3 group sm:rounded-l-2xl sm:rounded-tr-none rounded-t-2xl flex sm:flex-col justify-between sm:w-52 w-full flex-shrink-0 bg-base-white space-x-2 sm:space-x-0">
       <div>
         <div class="font-medium items-start w-full group-hover:link text-sm flex space-x-1">
           <%= svg_icon('file_text', class: 'w-4 h-4 mt-0.5 flex-shrink-0') %>
@@ -97,18 +97,18 @@
           <% end %>
         <% end %>
         <div class="flex-1 md:flex-none z-[1]">
-          <a href="<%= submission_path(submission) %>" class="btn btn-outline btn-sm w-full md:w-24">
+          <a href="<%= submission_path(submission) %>" class="btn btn-outline btn-sm w-full md:w-24 bg-base-white">
             <%= t('view') %>
           </a>
         </div>
         <% if !submission.archived_at? && !template.archived_at? && can?(:destroy, submission) %>
           <span data-tip="<%= t('archive') %>" class="sm:tooltip tooltip-top">
-            <%= button_to button_title(title: nil, disabled_with: t(:archive).first(4), icon: svg_icon('archive', class: 'w-6 h-6')), submission_path(submission), class: 'btn btn-outline btn-sm w-full md:w-fit', form: { class: 'flex' }, title: t('archive'), method: :delete %>
+            <%= button_to button_title(title: nil, disabled_with: t(:archive).first(4), icon: svg_icon('archive', class: 'w-6 h-6')), submission_path(submission), class: 'bg-base-white btn btn-outline btn-sm w-full md:w-fit', form: { class: 'flex' }, title: t('archive'), method: :delete %>
           </span>
         <% end %>
         <% if local_assigns[:archived] && can?(:destroy, submission) %>
           <span data-tip="<%= t('remove') %>" class="sm:tooltip tooltip-top">
-            <%= button_to button_title(title: nil, disabled_with: t(:remove).first(3), icon: svg_icon('trash', class: 'w-6 h-6')), submission_path(submission, permanently: true), class: 'btn btn-outline btn-sm w-full md:w-fit', form: { class: 'flex' }, title: t('remove'), method: :delete, data: { turbo_confirm: t('submission_deletion_is_irreversible_and_will_permanently_remove_all_associated_signed_documents_with_it_are_you_sure_') } %>
+            <%= button_to button_title(title: nil, disabled_with: t(:remove).first(3), icon: svg_icon('trash', class: 'w-6 h-6')), submission_path(submission, permanently: true), class: 'bg-base-white btn btn-outline btn-sm w-full md:w-fit', form: { class: 'flex' }, title: t('remove'), method: :delete, data: { turbo_confirm: t('submission_deletion_is_irreversible_and_will_permanently_remove_all_associated_signed_documents_with_it_are_you_sure_') } %>
           </span>
         <% end %>
       </div>
@@ -204,18 +204,18 @@
           </div>
         <% end %>
         <div class="flex-1 md:flex-none z-[1]">
-          <a href="<%= submission_path(submission) %>" class="btn btn-outline btn-sm w-full md:w-24">
+          <a href="<%= submission_path(submission) %>" class="btn btn-outline btn-sm w-full md:w-24 bg-base-white">
             <%= t('view') %>
           </a>
         </div>
         <% if !submission.archived_at? && !template.archived_at? %>
           <span data-tip="<%= t('archive') %>" class="sm:tooltip tooltip-top">
-            <%= button_to button_title(title: nil, disabled_with: t(:archive).first(4), icon: svg_icon('archive', class: 'w-6 h-6')), submission_path(submission), class: 'btn btn-outline btn-sm w-full md:w-fit', form: { class: 'flex' }, title: t('archive'), method: :delete %>
+            <%= button_to button_title(title: nil, disabled_with: t(:archive).first(4), icon: svg_icon('archive', class: 'w-6 h-6')), submission_path(submission), class: 'bg-base-white btn btn-outline btn-sm w-full md:w-fit', form: { class: 'flex' }, title: t('archive'), method: :delete %>
           </span>
         <% end %>
         <% if local_assigns[:archived] && can?(:destroy, submission) %>
           <span data-tip="<%= t('remove') %>" class="sm:tooltip tooltip-top">
-            <%= button_to button_title(title: nil, disabled_with: t(:remove).first(3), icon: svg_icon('trash', class: 'w-6 h-6')), submission_path(submission, permanently: true), class: 'btn btn-outline btn-sm w-full md:w-fit', form: { class: 'flex' }, title: t('remove'), method: :delete, data: { turbo_confirm: t('submission_deletion_is_irreversible_and_will_permanently_remove_all_associated_signed_documents_with_it_are_you_sure_') } %>
+            <%= button_to button_title(title: nil, disabled_with: t(:remove).first(3), icon: svg_icon('trash', class: 'w-6 h-6')), submission_path(submission, permanently: true), class: 'bg-base-white btn btn-outline btn-sm w-full md:w-fit', form: { class: 'flex' }, title: t('remove'), method: :delete, data: { turbo_confirm: t('submission_deletion_is_irreversible_and_will_permanently_remove_all_associated_signed_documents_with_it_are_you_sure_') } %>
           </span>
         <% end %>
       </div>

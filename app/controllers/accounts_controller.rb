@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
     'it-IT' => 'Italiano'
   }.freeze
 
-  before_action :load_account
+  before_action :authorize_admin
   authorize_resource :account
 
   def show; end
@@ -56,6 +56,14 @@ class AccountsController < ApplicationController
   end
 
   private
+
+  def authorize_admin
+    unless current_user&.role == User::ADMIN_ROLE
+      render file: Rails.root.join('public/403.html'),
+             status: :forbidden,
+             layout: false
+    end
+  end
 
   def load_account
     @account = current_account
