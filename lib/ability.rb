@@ -25,6 +25,7 @@ class Ability
     #can :manage, WebhookUrl, account_id: user.account_id
 
     if user.role == User::ADMIN_ROLE || (user.respond_to?(:admin?) && user.admin?)
+        can [:read, :create, :update], Template, account_id: user.account_id
         can :manage, User, account_id: user.account_id
         can :manage, UserConfig, user_id: user.id
         can :manage, EncryptedConfig, account_id: user.account_id
