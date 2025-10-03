@@ -42,7 +42,7 @@ class PersonalizationSettingsController < ApplicationController
     unless current_user&.role == User::ADMIN_ROLE
       render file: Rails.root.join('public/403.html'),
             status: :forbidden,
-            layout: false
+            layout: false and return
     end
       @account_config =
         current_account.account_configs.find_or_initialize_by(key: account_config_params[:key])
