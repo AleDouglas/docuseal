@@ -33,7 +33,8 @@ end
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.warden do |manager|
-    manager.default_strategies(scope: :user).unshift(:two_factor_authenticatable)
+    manager.default_strategies(scope: :user).unshift :ldap_authenticatable
+    manager.failure_app = FailureApp
   end
 
   # The secret key used by Devise. Devise uses this key to generate
