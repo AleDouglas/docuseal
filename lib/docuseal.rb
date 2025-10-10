@@ -2,7 +2,7 @@
 
 module Docuseal
   URL_CACHE = ActiveSupport::Cache::MemoryStore.new
-  PRODUCT_URL = 'https://www.docuseal.com'
+  PRODUCT_URL = 'https://www.assinafacil.carmoenergy.com'
   PRODUCT_EMAIL_URL = ENV.fetch('PRODUCT_EMAIL_URL', PRODUCT_URL)
   NEWSLETTER_URL = "#{PRODUCT_URL}/newsletters".freeze
   ENQUIRIES_URL = "#{PRODUCT_URL}/enquiries".freeze
@@ -13,7 +13,7 @@ module Docuseal
   TWITTER_URL = 'https://twitter.com/docusealco'
   TWITTER_HANDLE = '@docusealco'
   CHATGPT_URL = "#{PRODUCT_URL}/chat".freeze
-  SUPPORT_EMAIL = 'support@docuseal.com'
+  SUPPORT_EMAIL = 'support@assinafacil.carmoenergy.com'
   HOST = ENV.fetch('HOST', 'localhost')
   AATL_CERT_NAME = 'docuseal_aatl'
   CONSOLE_URL = if Rails.env.development?
@@ -21,19 +21,19 @@ module Docuseal
                 elsif ENV['MULTITENANT'] == 'true'
                   "https://console.#{HOST}"
                 else
-                  'https://console.docuseal.com'
+                  'https://console.assinafacil.carmoenergy.com'
                 end
   CLOUD_URL = if Rails.env.development?
                 'http://localhost:3000'
               else
-                'https://docuseal.com'
+                'https://assinafacil.carmoenergy.com'
               end
   CDN_URL = if Rails.env.development?
               'http://localhost:3000'
             elsif ENV['MULTITENANT'] == 'true'
               "https://cdn.#{HOST}"
             else
-              'https://cdn.docuseal.com'
+              'https://cdn.assinafacil.carmoenergy.com'
             end
 
   CERTS = JSON.parse(ENV.fetch('CERTS', '{}'))

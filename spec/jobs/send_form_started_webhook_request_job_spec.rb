@@ -31,7 +31,7 @@ RSpec.describe SendFormStartedWebhookRequestJob do
         },
         headers: {
           'Content-Type' => 'application/json',
-          'User-Agent' => 'DocuSeal.com Webhook'
+          'User-Agent' => 'AssinaFacil.com Webhook'
         }
       ).once
     end
@@ -48,7 +48,7 @@ RSpec.describe SendFormStartedWebhookRequestJob do
         },
         headers: {
           'Content-Type' => 'application/json',
-          'User-Agent' => 'DocuSeal.com Webhook',
+          'User-Agent' => 'AssinaFacil.com Webhook',
           'X-Secret-Header' => 'secret_value'
         }
       ).once

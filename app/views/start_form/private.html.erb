@@ -1,4 +1,4 @@
-<% content_for(:html_title, "#{@template.name} | DocuSeal") %>
+<% content_for(:html_title, "#{@template.name} | AssinaFacil") %>
 <% content_for(:html_description, t('share_link_is_currently_disabled')) %>
 <div class="max-w-md mx-auto px-2 mt-12 mb-4">
   <div class="space-y-6 mx-auto">
@@ -25,4 +25,4 @@
     </div>
   </div>
 </div>
-<%= render 'shared/attribution', link_path: '/start', account: @template.account %>
+<%= render 'shared/attribution', link_path: '/', account: @template.account %>

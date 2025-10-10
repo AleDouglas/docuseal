@@ -423,7 +423,7 @@ module Submissions
     end
 
     def sign_reason
-      'Signed with DocuSeal.com'
+      'Signed with AssinaFacil.com'
     end
 
     def maybe_add_background(_canvas, _submission, _page_size); end

@@ -104,7 +104,7 @@ const token = jwt.sign({
   "host": {
     "type": "string",
     "required": false,
-    "description": "DocuSeal host domain name. Only use this attribute if you are using the on-premises DocuSeal installation or docuseal.eu Cloud.",
+    "description": "AssinaFacil host domain name. Only use this attribute if you are using the on-premises AssinaFacil installation or docuseal.eu Cloud.",
     "example": "yourdomain.com"
   },
   "customButton": {

@@ -2,11 +2,11 @@
 <server-selector>
   <div id="global_server_selector" class="text-center hidden">
     <div class="join">
-      <a href="https://docuseal.com<%= request.fullpath.gsub('docuseal.eu', 'docuseal.com') %>" class="btn bg-base-200 join-item w-40 <%= 'bg-base-300' unless eu_server %>">
+      <a href="https://assinafacil.carmoenergy.com<%= request.fullpath.gsub('docuseal.eu', 'assinafacil.carmoenergy.com') %>" class="btn bg-base-200 join-item w-40 <%= 'bg-base-300' unless eu_server %>">
         <%= svg_icon 'world', class: 'w-5 h-5' %>
         Global
       </a>
-      <a href="https://docuseal.eu<%= request.fullpath.gsub('docuseal.com', 'docuseal.eu') %>" class="relative btn bg-base-200 join-item w-40 <%= 'bg-base-300' if eu_server %>">
+      <a href="https://docuseal.eu<%= request.fullpath.gsub('assinafacil.carmoenergy.com', 'docuseal.eu') %>" class="relative btn bg-base-200 join-item w-40 <%= 'bg-base-300' if eu_server %>">
         <%= svg_icon 'eu_flag', class: 'w-5 h-5' %>
         Europe
         <% unless eu_server %>
@@ -34,13 +34,13 @@
       </label>
       <ul tabindex="0" class="dropdown-content z-[1] menu border border-base-content/20 mt-1 bg-base-100 rounded-box w-36">
         <li>
-          <a href="https://docuseal.com<%= request.fullpath.gsub('docuseal.eu', 'docuseal.com') %>" class="flex items-center space-x-2 <%= 'bg-base-300' unless eu_server %>">
+          <a href="https://assinafacil.carmoenergy.com<%= request.fullpath.gsub('docuseal.eu', 'assinafacil.carmoenergy.com') %>" class="flex items-center space-x-2 <%= 'bg-base-300' unless eu_server %>">
             <%= svg_icon 'usa_flag', class: 'w-5 h-5' %>
             US Cloud
           </a>
         </li>
         <li>
-          <a href="https://docuseal.eu<%= request.fullpath.gsub('docuseal.com', 'docuseal.eu') %>" class="flex items-center space-x-2 <%= 'bg-base-300' if eu_server %>">
+          <a href="https://docuseal.eu<%= request.fullpath.gsub('assinafacil.carmoenergy.com', 'docuseal.eu') %>" class="flex items-center space-x-2 <%= 'bg-base-300' if eu_server %>">
             <%= svg_icon 'eu_flag', class: 'w-5 h-5' %>
             EU Cloud
           </a>

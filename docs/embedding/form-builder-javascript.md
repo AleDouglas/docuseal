@@ -3,7 +3,7 @@
 ### Example Code
 
 ```javascript
-<script src="https://docuseal.com/js/builder.js"></script>
+<script src="https://assinafacil.carmoenergy.com/js/builder.js"></script>
 
 <docuseal-builder
   data-token="<%= JWT.encode({
@@ -74,7 +74,7 @@
   "data-host": {
     "type": "string",
     "required": false,
-    "description": "DocuSeal host domain name. Only use this attribute if you are using the on-premises DocuSeal installation or docuseal.eu Cloud.",
+    "description": "AssinaFacil host domain name. Only use this attribute if you are using the on-premises AssinaFacil installation or docuseal.eu Cloud.",
     "example": "yourdomain.com"
   },
   "data-roles": {

@@ -10,7 +10,7 @@ export function App() {
   return (
     <div className="app">
       <DocusealForm
-        src="https://docuseal.com/d/{{template_slug}}"
+        src="https://assinafacil.carmoenergy.com/d/{{template_slug}}"
         email="{{signer_email}}"
         onComplete={(data) => console.log(data)}
       />
@@ -135,7 +135,7 @@ export function App() {
     "type": "string",
     "required": false,
     "description": "URL to redirect to after the submission completion.",
-    "example": "https://docuseal.com/success"
+    "example": "https://assinafacil.carmoenergy.com/success"
   },
   "completedMessage": {
     "type": "object",

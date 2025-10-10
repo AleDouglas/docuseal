@@ -5,7 +5,7 @@
 ```vue
 <template>
   <DocusealForm
-    :src="'https://docuseal.com/d/{{template_slug}}'"
+    :src="'https://assinafacil.carmoenergy.com/d/{{template_slug}}'"
     :email="'{{signer_email}}'"
     @complete="onFormComplete"
   />
@@ -203,7 +203,7 @@ export default {
     "type": "string",
     "required": false,
     "description": "URL to redirect to after the submission completion.",
-    "example": "https://docuseal.com/success"
+    "example": "https://assinafacil.carmoenergy.com/success"
   },
   "completed-message": {
     "type": "object",

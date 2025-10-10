@@ -76,7 +76,7 @@
       </a>
       <a
         v-if="isDemo"
-        href="https://docuseal.com/sign_up"
+        href="https://assinafacil.carmoenergy.com/sign_up"
         class="white-button flex items-center space-x-1 w-full"
       >
         <IconLogin />
@@ -91,10 +91,10 @@
     >
       {{ t('powered_by') }}
       <a
-        href="https://www.docuseal.com/start"
+        href="https://www.assinafacil.carmoenergy.com/"
         target="_blank"
         class="underline"
-      >DocuSeal</a> - {{ t('open_source_documents_software') }}
+      >AssinaFacil</a> - {{ t('open_source_documents_software') }}
     </div>
   </div>
 </template>

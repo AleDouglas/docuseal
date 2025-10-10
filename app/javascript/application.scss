@@ -15,6 +15,11 @@ button {
   cursor: pointer;
 }
 
+:root, [data-theme] {
+    background-color: white !important;
+    color: hsl(var(--bc) / var(--tw-text-opacity, 1));
+}
+
 .bg-base-content{
   background-color: #1b396d !important;
   color: white !important;
