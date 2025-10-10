@@ -338,7 +338,7 @@ Devise.setup do |config|
   # Você também pode revisar outras flags, por exemplo:
   # config.ldap_check_group_membership = false
   # config.ldap_check_attributes       = false
-  # config.ldap_update_password        = true
+  config.ldap_update_password = false
   # config.ldap_use_admin_to_bind      = true
 
 end
